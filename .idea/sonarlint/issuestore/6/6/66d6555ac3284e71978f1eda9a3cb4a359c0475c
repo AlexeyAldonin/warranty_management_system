@@ -1,0 +1,38 @@
+
+J
+java:S1481"*Remove this unused "hours" local variable.(–îİÂÿÿÿÿÿ8ÄÃ¯é›.
+[
+java:S1854"@Remove this useless assignment to local variable "partQuantity".(òå£®8ÄÃ¯é›.
+j
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ÙìÍğ8ÄÃ¯é›.
+X	java:S106"9Replace this use of System.out or System.err by a logger.(©şêÜúÿÿÿÿ8ÄÃ¯é›.
+W
+java:S1854"7Remove this useless assignment to local variable "vin".(‹ƒ÷Óıÿÿÿÿ8ÄÃ¯é›.
+X
+java:S1854"=Remove this useless assignment to local variable "statement".(ÙìÍğ8ÄÃ¯é›.
+H
+java:S1481"(Remove this unused "vin" local variable.(‹ƒ÷Óıÿÿÿÿ8ÄÃ¯é›.
+^
+java:S1854">Remove this useless assignment to local variable "partNumber".(Ï©ĞÍøÿÿÿÿ8ÄÃ¯é›.
+h
+java:S2095"HUse try-with-resources or close this "Connection" in a "finally" clause.(ŒÊŠ€ıÿÿÿÿ8ÄÃ¯é›.
+G
+java:S1481",Remove this unused "mileage" local variable.(¬ù®Ï8ÄÃ¯é›.
+L
+java:S1481"1Remove this unused "partQuantity" local variable.(òå£®8ÄÃ¯é›.
+I
+java:S1481".Remove this unused "statement" local variable.(ÙìÍğ8ÄÃ¯é›.
+O
+java:S1481"/Remove this unused "repairDate" local variable.(ÿíåÃıÿÿÿÿ8ÄÃ¯é›.
+Q
+java:S1481"6Remove this unused "repairOperationId" local variable.(—Ã×œ8ÄÃ¯é›.
+`
+java:S1854"ERemove this useless assignment to local variable "repairOperationId".(—Ã×œ8ÄÃ¯é›.
+Y
+java:S1854"9Remove this useless assignment to local variable "hours".(–îİÂÿÿÿÿÿ8ÄÃ¯é›.
+V
+java:S1854";Remove this useless assignment to local variable "mileage".(¬ù®Ï8ÄÃ¯é›.
+^
+java:S1854">Remove this useless assignment to local variable "repairDate".(ÿíåÃıÿÿÿÿ8ÄÃ¯é›.
+O
+java:S1481"/Remove this unused "partNumber" local variable.(Ï©ĞÍøÿÿÿÿ8ÄÃ¯é›.

@@ -1,0 +1,8 @@
+
+
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÔÃŒ¡8º¾Á•˜.
+g	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(ªÛî—ÿÿÿÿÿ8©ÇÛ™™.
+H
+java:S1168"+Return an empty collection instead of null.(¥¹ï8ô¬Õõ˜.
+H
+java:S1172"&Remove these unused method parameters.(ªÛî—ÿÿÿÿÿ8©ÇÛ™™.

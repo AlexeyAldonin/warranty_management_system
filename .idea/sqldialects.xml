@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/dbsql/repair-operations.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/dbsql/repairs.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/dbsql/spare_parts.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/dbsql/vehicles.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/javaprojectkazan/enums/DBCommand.java" dialect="PostgreSQL" />
+  </component>
+</project>
