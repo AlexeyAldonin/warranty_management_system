@@ -4,7 +4,6 @@ import lombok.extern.slf4j.Slf4j;
 import ru.javaprojectkazan.beans.Repair;
 import ru.javaprojectkazan.enums.DBCommand;
 import ru.javaprojectkazan.exceptions.DataSourceServiceException;
-import ru.javaprojectkazan.exceptions.PropertyReaderException;
 import ru.javaprojectkazan.services.DataSourceService;
 
 import java.sql.Date;
@@ -17,27 +16,24 @@ public class RepairDAO implements DAO<Repair> {
 
     private DataSourceService dataSourceService = new DataSourceService();
 
-    public RepairDAO() throws PropertyReaderException {
-    }
-
     @Override
     public void insert(Repair repair) {
 
         try (PreparedStatement preparedStatement = dataSourceService.getPreparedStatement(DBCommand.
                 INSERT_INTO_REPAIRS_REPAIR_VALUES.getCommand())) {
-            preparedStatement.setInt(1, repair.getClaimNumber());
-            preparedStatement.setString(2, repair.getVehicle().getVin());
-            preparedStatement.setInt(3, repair.getVehicleMileage());
-            preparedStatement.setDate(4, (Date) repair.getDateOfRepair());
-            preparedStatement.setInt(5, repair.getCausalPart().getCatalogueNumber());
-            preparedStatement.setString(6, repair.getCausalPart().getPartName());
-            preparedStatement.setInt(7, repair.getPartQuantity());
-            preparedStatement.setDouble(8, repair.getPartsTotalCost());
-            preparedStatement.setInt(9, repair.getRepairOperation().getCode());
-            preparedStatement.setString(10, repair.getRepairOperation().getName());
-            preparedStatement.setDouble(11, repair.getRepairTime());
-            preparedStatement.setDouble(12, repair.getRepairOperationsTotalCost());
-            preparedStatement.setDouble(13, repair.getTotalRepairCost());
+            //preparedStatement.setInt(1, repair.getClaimNumber());
+            preparedStatement.setString(1, repair.getVehicle().getVin());
+            preparedStatement.setInt(2, repair.getVehicleMileage());
+            preparedStatement.setDate(3, repair.getDateOfRepair());
+            preparedStatement.setInt(4, repair.getCausalPart().getCatalogueNumber());
+            preparedStatement.setString(5, repair.getCausalPart().getPartName());
+            preparedStatement.setInt(6, repair.getPartQuantity());
+            preparedStatement.setDouble(7, repair.getPartsTotalCost());
+            preparedStatement.setInt(8, repair.getRepairOperation().getCode());
+            preparedStatement.setString(9, repair.getRepairOperation().getName());
+            preparedStatement.setDouble(10, repair.getRepairTime());
+            preparedStatement.setDouble(11, repair.getRepairOperationsTotalCost());
+            preparedStatement.setDouble(12, repair.getTotalRepairCost());
             preparedStatement.executeUpdate();
         } catch (DataSourceServiceException e) {
             log.error("Ошибка подключения к БД при попытке вставки записи с данными ремонта", e);

@@ -90,4 +90,11 @@ public class Vehicle {
     public void setMileageAtLastClaim(int mileageAtLastClaim) {
         this.mileageAtLastClaim = mileageAtLastClaim;
     }
+
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "vin='" + vin + '\'' +
+                '}';
+    }
 }

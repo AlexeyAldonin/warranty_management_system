@@ -17,7 +17,7 @@ public class DataSourceService {
     private Properties properties;
     private Connection connection;
 
-    public DataSourceService() throws PropertyReaderException{
+    public DataSourceService() {
         try {
             properties = PropertiesReadService.readDataSourceProperty();
         } catch (PropertyReaderException e) {

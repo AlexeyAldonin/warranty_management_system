@@ -2,7 +2,7 @@ package ru.javaprojectkazan.beans;
 
 public class RepairOperation {
 
-    private int hourPrice;
+    private double hourPrice;
     private int code;
     private String name;
 
@@ -12,11 +12,11 @@ public class RepairOperation {
         this.name = name;
     }
 
-    public int getHourPrice() {
+    public double getHourPrice() {
         return hourPrice;
     }
 
-    public void setHourPrice(int hourPrice) {
+    public void setHourPrice(double hourPrice) {
         this.hourPrice = hourPrice;
     }
 
@@ -34,5 +34,14 @@ public class RepairOperation {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "RepairOperation{" +
+                "hourPrice=" + hourPrice +
+                ", code=" + code +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

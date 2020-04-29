@@ -36,4 +36,13 @@ public class Part {
     public void setPrice(double price) {
         this.price = price;
     }
+
+    @Override
+    public String toString() {
+        return "Part{" +
+                "catalogueNumber=" + catalogueNumber +
+                ", partName='" + partName + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }

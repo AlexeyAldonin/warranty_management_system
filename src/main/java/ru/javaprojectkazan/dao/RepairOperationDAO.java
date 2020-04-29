@@ -18,9 +18,6 @@ public class RepairOperationDAO implements DAO<RepairOperation>{
 
     private DataSourceService dataSourceService = new DataSourceService();
 
-    public RepairOperationDAO() throws PropertyReaderException {
-    }
-
     @Override
     public void insert(RepairOperation repairOperation) {
 

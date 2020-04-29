@@ -1,6 +1,6 @@
 package ru.javaprojectkazan.beans;
 
-import java.util.Date;
+import java.sql.Date;
 
 
 public class Repair {
@@ -16,6 +16,20 @@ public class Repair {
     private double repairTime;
     private double repairOperationsTotalCost;
     private double totalRepairCost;
+
+    public Repair(Date dateOfRepair, Vehicle vehicle, int vehicleMileage, Part causalPart, int partQuantity,
+                  RepairOperation repairOperation, double repairTime) {
+        this.dateOfRepair = dateOfRepair;
+        this.vehicle = vehicle;
+        this.vehicleMileage = vehicleMileage;
+        this.causalPart = causalPart;
+        this.partQuantity = partQuantity;
+        this.partsTotalCost = causalPart.getPrice() * partQuantity;
+        this.repairOperation = repairOperation;
+        this.repairTime = repairTime;
+        this.repairOperationsTotalCost = repairOperation.getHourPrice() * repairTime;
+        this.totalRepairCost = partsTotalCost + repairOperationsTotalCost;
+    }
 
     public Repair(int claimNumber, Date dateOfRepair, Vehicle vehicle, int vehicleMileage, Part causalPart,
                   int partQuantity, RepairOperation repairOperation, double repairTime) {
@@ -118,6 +132,23 @@ public class Repair {
 
     public void setVehicleMileage(int vehicleMileage) {
         this.vehicleMileage = vehicleMileage;
+    }
+
+    @Override
+    public String toString() {
+        return "Repair{" +
+                "claimNumber=" + claimNumber +
+                ", dateOfRepair=" + dateOfRepair +
+                ", vehicle=" + vehicle +
+                ", vehicleMileage=" + vehicleMileage +
+                ", causalPart=" + causalPart +
+                ", partQuantity=" + partQuantity +
+                ", partsTotalCost=" + partsTotalCost +
+                ", repairOperation=" + repairOperation +
+                ", repairTime=" + repairTime +
+                ", repairOperationsTotalCost=" + repairOperationsTotalCost +
+                ", totalRepairCost=" + totalRepairCost +
+                '}';
     }
 }
 

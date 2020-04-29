@@ -5,7 +5,6 @@ import ru.javaprojectkazan.beans.Part;
 import ru.javaprojectkazan.enums.DBCommand;
 import ru.javaprojectkazan.enums.PartParameter;
 import ru.javaprojectkazan.exceptions.DataSourceServiceException;
-import ru.javaprojectkazan.exceptions.PropertyReaderException;
 import ru.javaprojectkazan.services.DataSourceService;
 
 import java.sql.PreparedStatement;
@@ -17,10 +16,7 @@ import java.util.List;
 @Slf4j
 public class PartDAO implements DAO<Part> {
 
-    private DataSourceService dataSourceService = new DataSourceService();
-
-    public PartDAO() throws PropertyReaderException {
-    }
+    private DataSourceService dataSourceService= new DataSourceService();
 
     @Override
     public void insert(Part part) {
@@ -28,7 +24,7 @@ public class PartDAO implements DAO<Part> {
     }
 
     @Override
-    public Part get(String firstParam) throws Exception {
+    public Part get(String firstParam) {
         return null;
     }
 
