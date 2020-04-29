@@ -11,4 +11,3 @@ alter table warranty_management_system.repair_operations owner to postgres;
 
 create unique index repair_operations_operation_id_uindex
 	on warranty_management_system.repair_operations (operation_id);
-

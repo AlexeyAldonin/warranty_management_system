@@ -16,4 +16,3 @@ alter table warranty_management_system.vehicles owner to postgres;
 
 create unique index vehicles_vin_uindex
     on warranty_management_system.vehicles (vin);
-

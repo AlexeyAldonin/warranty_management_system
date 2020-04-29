@@ -13,4 +13,3 @@ alter table warranty_management_system.spare_parts owner to postgres;
 
 create unique index spare_parts_part_number_uindex
     on warranty_management_system.spare_parts (part_number);
-
