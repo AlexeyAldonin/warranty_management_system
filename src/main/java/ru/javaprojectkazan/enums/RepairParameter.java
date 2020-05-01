@@ -23,4 +23,8 @@ public enum RepairParameter {
     RepairParameter(String name) {
         this.name = name;
     }
+
+    public String getName() {
+        return name;
+    }
 }

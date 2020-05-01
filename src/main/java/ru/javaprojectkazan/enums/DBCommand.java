@@ -5,9 +5,6 @@ public enum DBCommand {
     INSERT_INTO_USERS_VALUES ("INSERT INTO WARRANTY_MANAGEMENT_SYSTEM.WARRANTY_MANAGEMENT_SYSTEM.USER " +
             "(LOGIN, PSSWD, NAME, SURNAME) VALUES (?,?,?,?)"),
     //language=sql
-    SELECT_CLIENT_BY_LGN_AND_PSSWD("SELECT * FROM WARRANTY_MANAGEMENT_SYSTEM." +
-            "WARRANTY_MANAGEMENT_SYSTEM.USER WHERE LOGIN = ? AND PSSWD = ?"),
-    //language=sql
     SELECT_PART_BY_NUMBER ("SELECT * FROM WARRANTY_MANAGEMENT_SYSTEM.WARRANTY_MANAGEMENT_SYSTEM.SPARE_PARTS WHERE " +
             "PART_NUMBER = ?"),
     //language=sql
@@ -25,7 +22,10 @@ public enum DBCommand {
             "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)"),
     //language=sql
     SELECT_VEHICLE_BY_VIN ("SELECT * FROM WARRANTY_MANAGEMENT_SYSTEM.WARRANTY_MANAGEMENT_SYSTEM.VEHICLES " +
-                                  "WHERE VIN = ?")
+                                  "WHERE VIN = ?"),
+    //language=sql
+    SELECT_USER_BY_LOGIN_AND_PSSWD ("SELECT * FROM warranty_management_system.warranty_management_system.user " +
+            "WHERE login = ? AND password = ?")
     ;
 
     String command;

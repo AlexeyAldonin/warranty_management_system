@@ -1,8 +1,17 @@
 package ru.javaprojectkazan.beans;
 
+import lombok.*;
+
 import java.util.LinkedList;
 import java.util.List;
 
+
+@Data
+@RequiredArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
 public class User implements CommonUser {
 
     @Override
@@ -10,12 +19,14 @@ public class User implements CommonUser {
         return null;
     }
 
-    private String name;
-    private String surname;
+    int id;
+    @NonNull private String name;
+    @NonNull private String surname;
     private String login;
     private String psswd;
-    private String employer;
-    private String systemRole;
+    @NonNull private String employer;
+    @NonNull private String systemRole;
+    private String email;
 
     public List<Repair> searchRepairByVIN(Vehicle vehicle, List<Repair> repairsList) {
 
