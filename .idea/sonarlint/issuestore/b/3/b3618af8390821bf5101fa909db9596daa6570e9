@@ -1,9 +1,6 @@
 
-]	java:S125"<This block of commented-out lines of code should be removed.(üÁ°õøÿÿÿÿ8ƒ·×“œ.
 {
 java:S1989,"YHandle the following exception that could be thrown by "parseInt": NumberFormatException.(¸¾Èüÿÿÿÿ8ƒ·×“œ.
-u
-java:S19893"SHandle the following exception that could be thrown by "sendRedirect": IOException.(ûóª£ÿÿÿÿÿ8ƒ·×“œ.
 v
 java:S1989)"YHandle the following exception that could be thrown by "parseInt": NumberFormatException.(—Œ€Ş8ƒ·×“œ.
 {
@@ -12,3 +9,6 @@ java:S1989,"YHandle the following exception that could be thrown by "parseInt":
 java:S1989#"YHandle the following exception that could be thrown by "parseInt": NumberFormatException.(Ÿ¯Í¢şÿÿÿÿ8ƒ·×“œ.
 v
 java:S1989-"YHandle the following exception that could be thrown by "parseInt": NumberFormatException.(“ù¨í8ƒ·×“œ.
+u
+java:S19893"SHandle the following exception that could be thrown by "sendRedirect": IOException.(ûóª£ÿÿÿÿÿ8ƒ·×“œ.
+]	java:S125"<This block of commented-out lines of code should be removed.(üÁ°õøÿÿÿÿ8ƒ·×“œ.

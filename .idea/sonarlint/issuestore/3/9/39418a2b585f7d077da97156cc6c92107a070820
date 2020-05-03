@@ -1,9 +1,9 @@
 
 d
 java:S2095)"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(ò¡¥¹8ÿŸÂ˜™.
-
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¬ËÔš8ÿŸÂ˜™.
 H
 java:S1168!"+Return an empty collection instead of null.(¥¹ï8ÿŸÂ˜™.
+
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¬ËÔš8ÿŸÂ˜™.
 u
 java:S1128"SRemove this unused import 'ru.javaprojectkazan.exceptions.PropertyReaderException'.(’ï±¡şÿÿÿÿ8º‚œ’›.

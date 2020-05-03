@@ -1,8 +1,9 @@
 
+Q
+java:S3740"/Provide the parametrized type for this generic.(Şª¦úıÿÿÿÿ8«„´.
+H
+java:S1168>"+Return an empty collection instead of null.(¥¹ï8«„´.
+d
+java:S2095!"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(ò¡¥¹8«„´.
 
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÔÃŒ¡8º¾Á•˜.
-g	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(ªÛî—ÿÿÿÿÿ8©ÇÛ™™.
-H
-java:S1168"+Return an empty collection instead of null.(¥¹ï8ô¬Õõ˜.
-H
-java:S1172"&Remove these unused method parameters.(ªÛî—ÿÿÿÿÿ8©ÇÛ™™.
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÔÃŒ¡8«„´.

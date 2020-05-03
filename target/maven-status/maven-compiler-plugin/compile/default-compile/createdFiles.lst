@@ -2,6 +2,7 @@ ru\javaprojectkazan\attempts\DBAttempt.class
 ru\javaprojectkazan\beans\Vehicle.class
 ru\javaprojectkazan\dao\RepairOperationDAO.class
 ru\javaprojectkazan\dao\VehicleDAO.class
+ru\javaprojectkazan\utilities\ServletUtilities.class
 ru\javaprojectkazan\enums\VehicleParameter.class
 ru\javaprojectkazan\enums\DBProperty.class
 ru\javaprojectkazan\beans\DealerRestrictedEmployee.class
@@ -14,13 +15,19 @@ ru\javaprojectkazan\enums\PartParameter.class
 ru\javaprojectkazan\enums\RepairParameter.class
 ru\javaprojectkazan\dao\PartDAO.class
 ru\javaprojectkazan\services\DataSourceService.class
+ru\javaprojectkazan\attempts\DBAttempt2.class
 ru\javaprojectkazan\beans\CommonUser.class
 ru\javaprojectkazan\enums\DBCommand.class
 ru\javaprojectkazan\enums\RepairOperationParameter.class
+ru\javaprojectkazan\enums\UserCredential.class
+ru\javaprojectkazan\servlets\LoginServlet.class
+ru\javaprojectkazan\enums\Message.class
 ru\javaprojectkazan\dao\UserDAO.class
 ru\javaprojectkazan\servlets\CreateClaimServlet.class
 ru\javaprojectkazan\beans\RepairOperation.class
 ru\javaprojectkazan\beans\Repair.class
 ru\javaprojectkazan\dao\RepairDAO.class
 ru\javaprojectkazan\dao\DAO.class
+ru\javaprojectkazan\enums\Page.class
 ru\javaprojectkazan\beans\Part.class
+ru\javaprojectkazan\utilities\SessionUtility.class
