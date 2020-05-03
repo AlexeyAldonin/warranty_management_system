@@ -58,6 +58,11 @@ public class UserDAO  implements DAO{
     }
 
     @Override
+    public void update(Object o) {
+
+    }
+
+    @Override
     public List getAll() {
         return null;
     }

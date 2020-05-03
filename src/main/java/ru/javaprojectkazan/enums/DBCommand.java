@@ -25,7 +25,10 @@ public enum DBCommand {
                                   "WHERE VIN = ?"),
     //language=sql
     SELECT_USER_BY_LOGIN_AND_PSSWD ("SELECT * FROM warranty_management_system.warranty_management_system.user " +
-            "WHERE login = ? AND password = ?")
+            "WHERE login = ? AND password = ?"),
+    //language=sql
+    UPDATE_VEHICLE_MILEAGE ("UPDATE warranty_management_system.warranty_management_system.vehicles " +
+            "SET mileage_at_last_claim = ? WHERE vin = ?")
     ;
 
     String command;

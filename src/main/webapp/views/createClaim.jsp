@@ -4,12 +4,18 @@
 <html>
 <head>
     <title>Заполнениее рекламации</title>
+    <style>
+        td {
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
+    <p style="color: red; font: -moz-info">${message}</p>
     <form id="repairForm" action="${pageContext.request.contextPath}/createClaim" method="POST">
-        <table>
+        <table style="table-layout: fixed; border-collapse: collapse; border: 3px solid black">
             <tr>
-                <td colspan="2"><label>Номер рекламации </label><input type="number" name="claimNumber"></td>
+                <td colspan="2"><label>Номер рекламации</label><input type="number" name="claimNumber"></td>
             </tr>
             <tr>
                 <td><label>VIN </label><input type="text" required="required" name="vin"></td>

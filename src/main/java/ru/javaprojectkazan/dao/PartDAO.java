@@ -76,4 +76,9 @@ public class PartDAO implements DAO<Part> {
         }
 
     }
+
+    @Override
+    public void update(Part part) {
+
+    }
 }

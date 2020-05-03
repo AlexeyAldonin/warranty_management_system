@@ -58,6 +58,11 @@ public class VehicleDAO implements DAO<Vehicle>{
     }
 
     @Override
+    public void update(Vehicle vehicle) {
+
+    }
+
+    @Override
     public List<Vehicle> getAll() {
         return null;
     }

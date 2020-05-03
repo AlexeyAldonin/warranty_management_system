@@ -10,6 +10,8 @@ public interface DAO<T> {
 
     T get(int firstParam) throws Exception;
 
+    void update(T t);
+
     List<T> getAll();
 
 }

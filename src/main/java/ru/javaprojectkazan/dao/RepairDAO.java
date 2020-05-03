@@ -56,6 +56,22 @@ public class RepairDAO implements DAO<Repair> {
     }
 
     @Override
+    public void update(Repair repair) {
+
+        try (PreparedStatement preparedStatement = dataSourceService.getPreparedStatement(DBCommand.UPDATE_VEHICLE_MILEAGE.getCommand())) {
+            preparedStatement.setInt(1, repair.getVehicleMileage());
+            preparedStatement.setString(2, repair.getVehicle().getVin());
+            preparedStatement.executeUpdate();
+        } catch (DataSourceServiceException e) {
+            log.error("Сбой при подключении к БД при попытке обновлении пробега", e);
+        } catch (SQLException e) {
+            log.error("Ощибка при подключении к БД при попытке обновления пробега автомобиля", e);
+        } finally {
+            dataSourceService.closeConnection();
+        }
+    }
+
+    @Override
     public List<Repair> getAll() {
         return null;
     }

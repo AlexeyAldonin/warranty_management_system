@@ -56,4 +56,9 @@ public class RepairOperationDAO implements DAO<RepairOperation>{
             dataSourceService.closeConnection();
         }
     }
+
+    @Override
+    public void update(RepairOperation repairOperation) {
+
+    }
 }

@@ -8,6 +8,9 @@ import ru.javaprojectkazan.dao.PartDAO;
 import ru.javaprojectkazan.dao.RepairDAO;
 import ru.javaprojectkazan.dao.RepairOperationDAO;
 import ru.javaprojectkazan.dao.VehicleDAO;
+import ru.javaprojectkazan.enums.Message;
+import ru.javaprojectkazan.enums.Page;
+import ru.javaprojectkazan.utilities.ServletUtilities;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,7 +25,6 @@ public class CreateClaimServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        //int claimNumber = Integer.parseInt(request.getParameter("claimNumber"));
         String vin = request.getParameter("vin");
         String mileage = request.getParameter("mileage");
         Date repairDate = Date.valueOf((request.getParameter("repairDate")));
@@ -33,22 +35,43 @@ public class CreateClaimServlet extends HttpServlet {
 
         PartDAO replacedPart = new PartDAO();
         Part part = replacedPart.get(Integer.parseInt(partNumber));
+        if (part == null) {
+            ServletUtilities.redirectToContextPageWithMessage(
+                    request, response, "message", Message.MISSING_PART.getMessage(), Page.CREATE_CLAIM.getPath());
+            return;
+        }
 
         VehicleDAO repairedVehicle = new VehicleDAO();
         Vehicle vehicle = repairedVehicle.get(vin);
+        if (vehicle == null) {
+            ServletUtilities.redirectToContextPageWithMessage(
+                    request, response, "message", Message.MISSING_VIN.getMessage(), Page.CREATE_CLAIM.getPath());
+            return;
+        }
+        if (vehicle.getMileageAtLastClaim() > Integer.parseInt(mileage)) {
+            ServletUtilities.redirectToContextPageWithMessage(
+                    request, response, "message",
+                    Message.INCORRECT_MILEAGE.getMessage() + vehicle.getMileageAtLastClaim(), Page.CREATE_CLAIM.getPath());
+            return;
+        }
 
         RepairOperationDAO operation = new RepairOperationDAO();
         RepairOperation repairOperation = operation.get(Integer.parseInt(repairOperationId));
-
+        if (repairOperation == null) {
+            ServletUtilities.redirectToContextPageWithMessage(
+                    request, response, "message", Message.MISSING_OPERATION.getMessage(), Page.CREATE_CLAIM.getPath());
+            return;
+        }
 
         Repair newRepair = new Repair(repairDate, vehicle, Integer.parseInt(mileage), part, Integer.parseInt(partQuantity),
                 repairOperation, Integer.parseInt(hours));
 
         RepairDAO currentRepair = new RepairDAO();
         currentRepair.insert(newRepair);
+        currentRepair.update(newRepair); //обновление пробега для автомобиля
 
 
-        response.sendRedirect(request.getContextPath() + "/index.jsp");
+        response.sendRedirect(request.getContextPath() + Page.HOME.getPath());
 
 
     }
