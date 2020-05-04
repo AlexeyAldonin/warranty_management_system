@@ -23,7 +23,7 @@ import java.sql.Date;
 public class CreateClaimServlet extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
 
         String vin = request.getParameter("vin");
         String mileage = request.getParameter("mileage");
@@ -33,16 +33,16 @@ public class CreateClaimServlet extends HttpServlet {
         String repairOperationId = request.getParameter("repairOperation");
         String hours = request.getParameter("hours");
 
-        PartDAO replacedPart = new PartDAO();
-        Part part = replacedPart.get(Integer.parseInt(partNumber));
+        PartDAO partDAO = new PartDAO();
+        Part part = partDAO.get(Integer.parseInt(partNumber));
         if (part == null) {
             ServletUtilities.redirectToContextPageWithMessage(
                     request, response, "message", Message.MISSING_PART.getMessage(), Page.CREATE_CLAIM.getPath());
             return;
         }
 
-        VehicleDAO repairedVehicle = new VehicleDAO();
-        Vehicle vehicle = repairedVehicle.get(vin);
+        VehicleDAO vehicleDAO = new VehicleDAO();
+        Vehicle vehicle = vehicleDAO.get(vin);
         if (vehicle == null) {
             ServletUtilities.redirectToContextPageWithMessage(
                     request, response, "message", Message.MISSING_VIN.getMessage(), Page.CREATE_CLAIM.getPath());
@@ -51,27 +51,29 @@ public class CreateClaimServlet extends HttpServlet {
         if (vehicle.getMileageAtLastClaim() > Integer.parseInt(mileage)) {
             ServletUtilities.redirectToContextPageWithMessage(
                     request, response, "message",
-                    Message.INCORRECT_MILEAGE.getMessage() + vehicle.getMileageAtLastClaim(), Page.CREATE_CLAIM.getPath());
+                    Message.INCORRECT_MILEAGE.getMessage() + vehicle.getMileageAtLastClaim(),
+                    Page.CREATE_CLAIM.getPath());
             return;
         }
 
-        RepairOperationDAO operation = new RepairOperationDAO();
-        RepairOperation repairOperation = operation.get(Integer.parseInt(repairOperationId));
+        RepairOperationDAO operationDAO = new RepairOperationDAO();
+        RepairOperation repairOperation = operationDAO.get(Integer.parseInt(repairOperationId));
         if (repairOperation == null) {
             ServletUtilities.redirectToContextPageWithMessage(
-                    request, response, "message", Message.MISSING_OPERATION.getMessage(), Page.CREATE_CLAIM.getPath());
+                    request, response, "message", Message.MISSING_OPERATION.getMessage(),
+                    Page.CREATE_CLAIM.getPath());
             return;
         }
 
         Repair newRepair = new Repair(repairDate, vehicle, Integer.parseInt(mileage), part, Integer.parseInt(partQuantity),
                 repairOperation, Integer.parseInt(hours));
 
-        RepairDAO currentRepair = new RepairDAO();
-        currentRepair.insert(newRepair);
-        currentRepair.update(newRepair); //обновление пробега для автомобиля
+        RepairDAO repairDAO = new RepairDAO();
+        repairDAO.insert(newRepair);
+        repairDAO.update(newRepair); //обновление пробега для автомобиля
 
 
-        response.sendRedirect(request.getContextPath() + Page.HOME.getPath());
+        ServletUtilities.redirectInsideServlet(request, response, Page.HOME.getPath());
 
 
     }

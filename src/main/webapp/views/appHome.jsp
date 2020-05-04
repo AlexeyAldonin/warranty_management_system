@@ -14,7 +14,7 @@
             </tr>
             <tr>
                 <td><a href="#">Find claim</a></td>
-                <td><a href="#">Find vehicle</a></td>
+                <td><a href="findVehicle.jsp">Find vehicle</a></td>
             </tr>
             <tr>
                 <td><a href="createClaim.jsp">Create claim</a></td>

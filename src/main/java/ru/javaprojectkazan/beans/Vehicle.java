@@ -1,8 +1,13 @@
 package ru.javaprojectkazan.beans;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Calendar;
 import java.util.Date;
 
+@Getter
+@Setter
 public class Vehicle {
     private String vin;
     private String model;
@@ -48,47 +53,6 @@ public class Vehicle {
         nextYear.add(Calendar.YEAR, +3);
         nextYear.add(Calendar.DAY_OF_YEAR, -1);
         return nextYear.getTime();
-    }
-
-
-    public String getVin() {
-        return vin;
-    }
-
-    public void setVin(String vin) {
-        this.vin = vin;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public Date getDispatchDate() {
-        return dispatchDate;
-    }
-
-    public void setDispatchDate(Date dispatchDate) {
-        this.dispatchDate = dispatchDate;
-    }
-
-    public Date getSoldDate() {
-        return soldDate;
-    }
-
-    public void setSoldDate(Date soldDate) {
-        this.soldDate = soldDate;
-    }
-
-    public int getMileageAtLastClaim() {
-        return mileageAtLastClaim;
-    }
-
-    public void setMileageAtLastClaim(int mileageAtLastClaim) {
-        this.mileageAtLastClaim = mileageAtLastClaim;
     }
 
     @Override

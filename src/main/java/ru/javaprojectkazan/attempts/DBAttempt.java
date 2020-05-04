@@ -1,6 +1,7 @@
 package ru.javaprojectkazan.attempts;
 
 import lombok.extern.slf4j.Slf4j;
+import ru.javaprojectkazan.beans.Vehicle;
 import ru.javaprojectkazan.enums.DBCommand;
 import ru.javaprojectkazan.exceptions.DataSourceServiceException;
 import ru.javaprojectkazan.services.DataSourceService;
@@ -38,6 +39,8 @@ public class DBAttempt {
         } finally {
             dataSourceService.closeConnection();
             System.out.println("Вставка завершена");
+            Vehicle vehicle = new Vehicle();
+            vehicle.getDispatchDate();
         }
 
     }
