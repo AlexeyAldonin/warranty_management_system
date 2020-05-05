@@ -1,8 +1,14 @@
 package ru.javaprojectkazan.beans;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.sql.Date;
 
-
+@Getter
+@Setter
+@AllArgsConstructor
 public class Repair {
 
     private int claimNumber;
@@ -56,82 +62,6 @@ public class Repair {
 
     public void calculateTotalRepairCost(double partsTotalCost, double repairOperationsTotalCost) {
         this.totalRepairCost = partsTotalCost + repairOperationsTotalCost;
-    }
-
-    public void setClaimNumber(int claimNumber) {
-        this.claimNumber = claimNumber;
-    }
-
-    public void setDateOfRepair(Date dateOfRepair) {
-        this.dateOfRepair = dateOfRepair;
-    }
-
-    public void setVehicle(Vehicle vehicle) {
-        this.vehicle = vehicle;
-    }
-
-    public void setCausalPart(Part causalPart) {
-        this.causalPart = causalPart;
-    }
-
-    public void setPartQuantity(int partQuantity) {
-        this.partQuantity = partQuantity;
-    }
-
-    public void setRepairOperation(RepairOperation repairOperation) {
-        this.repairOperation = repairOperation;
-    }
-
-    public void setRepairTime(double repairTime) {
-        this.repairTime = repairTime;
-    }
-
-    public int getClaimNumber() {
-        return claimNumber;
-    }
-
-    public Date getDateOfRepair() {
-        return dateOfRepair;
-    }
-
-    public Vehicle getVehicle() {
-        return vehicle;
-    }
-
-    public Part getCausalPart() {
-        return causalPart;
-    }
-
-    public int getPartQuantity() {
-        return partQuantity;
-    }
-
-    public double getPartsTotalCost() {
-        return partsTotalCost;
-    }
-
-    public RepairOperation getRepairOperation() {
-        return repairOperation;
-    }
-
-    public double getRepairTime() {
-        return repairTime;
-    }
-
-    public double getRepairOperationsTotalCost() {
-        return repairOperationsTotalCost;
-    }
-
-    public double getTotalRepairCost() {
-        return totalRepairCost;
-    }
-
-    public int getVehicleMileage() {
-        return vehicleMileage;
-    }
-
-    public void setVehicleMileage(int vehicleMileage) {
-        this.vehicleMileage = vehicleMileage;
     }
 
     @Override

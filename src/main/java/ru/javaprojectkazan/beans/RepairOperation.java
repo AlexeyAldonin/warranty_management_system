@@ -1,5 +1,10 @@
 package ru.javaprojectkazan.beans;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class RepairOperation {
 
     private double hourPrice;
@@ -9,30 +14,6 @@ public class RepairOperation {
     public RepairOperation(int code, String name, int hourPrice) {
         this.hourPrice = hourPrice;
         this.code = code;
-        this.name = name;
-    }
-
-    public double getHourPrice() {
-        return hourPrice;
-    }
-
-    public void setHourPrice(double hourPrice) {
-        this.hourPrice = hourPrice;
-    }
-
-    public int getCode() {
-        return code;
-    }
-
-    public void setCode(int code) {
-        this.code = code;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
         this.name = name;
     }
 

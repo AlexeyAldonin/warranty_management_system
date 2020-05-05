@@ -14,5 +14,6 @@
     <p>Date of sale: ${vehicle.soldDate}</p>
     <p>Warranty expire date: ${vehicle.warrantyExpireDate}</p>
     <p>Mileage at last claim: ${vehicle.mileageAtLastClaim}</p>
+    <input type="button" onclick="history.back();" value="Назад"/>
 </body>
 </html>

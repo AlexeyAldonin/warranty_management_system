@@ -18,7 +18,7 @@
             </tr>
             <tr>
                 <td><a href="createClaim.jsp">Create claim</a></td>
-                <td><a href="#">Vehicle claim history</a></td>
+                <td><a href="historyRequest.jsp">Vehicle claim history</a></td>
             </tr>
         </table>
     </div>

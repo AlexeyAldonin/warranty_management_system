@@ -1,12 +1,10 @@
 package ru.javaprojectkazan.dao;
 
 import lombok.extern.slf4j.Slf4j;
-import ru.javaprojectkazan.beans.Part;
 import ru.javaprojectkazan.beans.Vehicle;
 import ru.javaprojectkazan.enums.DBCommand;
 import ru.javaprojectkazan.enums.VehicleParameter;
 import ru.javaprojectkazan.exceptions.DataSourceServiceException;
-import ru.javaprojectkazan.exceptions.PropertyReaderException;
 import ru.javaprojectkazan.services.DataSourceService;
 
 import java.sql.PreparedStatement;
@@ -53,7 +51,7 @@ public class VehicleDAO implements DAO<Vehicle>{
     }
 
     @Override
-    public Vehicle get(int firstParam) throws Exception {
+    public Vehicle get(int firstParam) {
         return null;
     }
 
