@@ -3,9 +3,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>System Home Page</title>
 </head>
 <body>
+<jsp:include page="./headers/systemHeader.jsp"></jsp:include>
     <div>
         <table align="center">
             <tr>
@@ -22,6 +23,5 @@
             </tr>
         </table>
     </div>
-
 </body>
 </html>

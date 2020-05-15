@@ -6,6 +6,7 @@
     <title>Claim History Request</title>
 </head>
 <body>
+<jsp:include page="./headers/systemHeader.jsp"></jsp:include>
     <p style="color: red; font: -moz-info">${message}</p>
     <h2>Введите VIN автомобиля для запроса</h2><br>
     <form action="${pageContext.request.contextPath}/claimHistory" method="get">
@@ -13,5 +14,6 @@
         <input type="text" maxlength="6" name="VIN" id="VIN" required><br><br>
         <input type="submit" value="Запросить" title="Отправить запрос">
     </form>
+    <input type="button" onclick="history.back();" value="Назад"/>
 </body>
 </html>

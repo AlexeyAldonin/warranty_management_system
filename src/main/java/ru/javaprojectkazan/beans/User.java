@@ -22,7 +22,7 @@ public class User implements CommonUser {
     int id;
     @NonNull private String name;
     @NonNull private String surname;
-    private String login;
+    @NonNull private String login;
     private String psswd;
     @NonNull private String employer;
     @NonNull private String systemRole;

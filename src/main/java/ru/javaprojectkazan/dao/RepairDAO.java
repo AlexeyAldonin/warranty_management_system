@@ -8,7 +8,6 @@ import ru.javaprojectkazan.beans.Vehicle;
 import ru.javaprojectkazan.enums.DBCommand;
 import ru.javaprojectkazan.exceptions.DataSourceServiceException;
 import ru.javaprojectkazan.services.DataSourceService;
-import ru.javaprojectkazan.utilities.ServletUtilities;
 
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -27,7 +26,6 @@ public class RepairDAO implements DAO<Repair> {
 
         try (PreparedStatement preparedStatement = dataSourceService.getPreparedStatement(DBCommand.
                 INSERT_INTO_REPAIRS_REPAIR_VALUES.getCommand())) {
-            //preparedStatement.setInt(1, repair.getClaimNumber());
             preparedStatement.setString(1, repair.getVehicle().getVin());
             preparedStatement.setInt(2, repair.getVehicleMileage());
             preparedStatement.setDate(3, repair.getDateOfRepair());
@@ -52,13 +50,53 @@ public class RepairDAO implements DAO<Repair> {
     }
 
     @Override
-    public Repair get(String vin) throws Exception {
+    public Repair get(String vin) {
         return null;
     }
 
     @Override
-    public Repair get(int firstParam) throws Exception {
-        return null;
+    public Repair get(int claimNumber) {
+        try (PreparedStatement preparedStatement = dataSourceService.getPreparedStatement(
+                DBCommand.SELECT_REPAIR_BY_NUMBER.getCommand())) {
+
+            Repair repair = null;
+            preparedStatement.setInt(1, claimNumber);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    Date repairDate = resultSet.getDate("repair_date");
+                    String vin = resultSet.getString("vehicle_vin");
+                    int mileage = resultSet.getInt("vehicle_mileage");
+                    int partNumber = resultSet.getInt("part_number");
+                    String partName = resultSet.getString("part_name");
+                    int partQuantity = resultSet.getInt("part_quantity");
+                    double partsCost = resultSet.getDouble("parts_cost");
+                    int repairOperationId = resultSet.getInt("repair_operation_id");
+                    String repairOperationName = resultSet.getString("repair_operation_name");
+                    double repairHours = resultSet.getDouble("repair_hours");
+                    double repairOperationsCost = resultSet.getDouble("repair_operations_cost");
+                    double repairTotalCost = resultSet.getDouble("repair_total_cost");
+
+                    Vehicle vehicle = new VehicleDAO().get(vin);
+
+                    Part part = new Part(partName, partNumber, partsCost / partQuantity);
+
+                    RepairOperation repairOperation = new RepairOperation(
+                            repairOperationId, repairOperationName, (int) (repairOperationsCost / repairHours));
+
+                    repair = new Repair(claimNumber, repairDate, vehicle, mileage, part, partQuantity, partsCost,
+                            repairOperation, repairHours, repairOperationsCost, repairTotalCost);
+                }
+            }
+            return repair;
+        } catch (DataSourceServiceException e) {
+            log.error("Ошибка при подключении к БД при запросе списка ремонтов", e);
+            return null;
+        } catch (SQLException e) {
+            log.error("Ошибка при выполнении запроса на получение списка ремонтов", e);
+            return null;
+        } finally {
+            dataSourceService.closeConnection();
+        }
     }
 
     @Override
@@ -92,30 +130,31 @@ public class RepairDAO implements DAO<Repair> {
 
             List<Repair> repairs = new ArrayList<>();
             preparedStatement.setString(1, vin);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                int claimNumber = resultSet.getInt("claim_number");
-                Date repairDate = resultSet.getDate("repair_date");
-                int mileage = resultSet.getInt("vehicle_mileage");
-                int partNumber = resultSet.getInt("part_number");
-                String partName = resultSet.getString("part_name");
-                int partQuantity = resultSet.getInt("part_quantity");
-                double partsCost = resultSet.getDouble("parts_cost");
-                int repairOperationId = resultSet.getInt("repair_operation_id");
-                String repairOperationName = resultSet.getString("repair_operation_name");
-                double repairHours = resultSet.getDouble("repair_hours");
-                double repairOperationsCost = resultSet.getDouble("repair_operations_cost");
-                double repairTotalCost = resultSet.getDouble("repair_total_cost");
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                while (resultSet.next()) {
+                    int claimNumber = resultSet.getInt("claim_number");
+                    Date repairDate = resultSet.getDate("repair_date");
+                    int mileage = resultSet.getInt("vehicle_mileage");
+                    int partNumber = resultSet.getInt("part_number");
+                    String partName = resultSet.getString("part_name");
+                    int partQuantity = resultSet.getInt("part_quantity");
+                    double partsCost = resultSet.getDouble("parts_cost");
+                    int repairOperationId = resultSet.getInt("repair_operation_id");
+                    String repairOperationName = resultSet.getString("repair_operation_name");
+                    double repairHours = resultSet.getDouble("repair_hours");
+                    double repairOperationsCost = resultSet.getDouble("repair_operations_cost");
+                    double repairTotalCost = resultSet.getDouble("repair_total_cost");
 
-                Part part = new Part(partName, partNumber, partsCost/partQuantity);
+                    Part part = new Part(partName, partNumber, partsCost / partQuantity);
 
-                RepairOperation repairOperation = new RepairOperation(
-                        repairOperationId, repairOperationName, (int) (repairOperationsCost/repairHours));
+                    RepairOperation repairOperation = new RepairOperation(
+                            repairOperationId, repairOperationName, (int) (repairOperationsCost / repairHours));
 
-                Repair repair = new Repair(claimNumber, repairDate, vehicle, mileage, part, partQuantity, partsCost,
-                        repairOperation, repairHours, repairOperationsCost, repairTotalCost);
+                    Repair repair = new Repair(claimNumber, repairDate, vehicle, mileage, part, partQuantity, partsCost,
+                            repairOperation, repairHours, repairOperationsCost, repairTotalCost);
 
-                repairs.add(repair);
+                    repairs.add(repair);
+                }
             }
             return repairs;
         } catch (DataSourceServiceException e) {

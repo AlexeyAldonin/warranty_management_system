@@ -7,6 +7,7 @@
     <title>Vehicle Details</title>
 </head>
 <body>
+<jsp:include page="./headers/systemHeader.jsp"></jsp:include>
     <h2>Сводная информация об автомобиле:</h2>
     <p>VIN: ${vehicle.vin}</p>
     <p>Model: ${vehicle.model}</p>

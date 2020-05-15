@@ -37,7 +37,7 @@ public class UserDAO  implements DAO{
                 String dealer = resultSet.getString("dealer_code");
                 String role = resultSet.getString("user_role");
 
-                return new User(name, surname, dealer, role);
+                return new User(name, surname, login, dealer, role);
             } else {
                 throw new DataSourceServiceException("Пользователь с указанными параметрами отсутствует");
             }

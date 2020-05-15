@@ -16,6 +16,7 @@
     </style>
 </head>
 <body>
+<jsp:include page="./headers/systemHeader.jsp"></jsp:include>
     <h2>Сводная таблица ремонтов для автомобиля: ${repairs.get(0).vehicle.vin}</h2>
     <table id="repairsList" style="table-layout: fixed; border-collapse: collapse; border: 3px solid black">
         <tr>
@@ -27,7 +28,9 @@
         </tr>
         <c:forEach items="${repairs}" var="repair">
             <tr>
-                <td>${repair.claimNumber}</td>
+                <td><a href="${pageContext.request.contextPath}/claimDetails?claimNumber=${repair.claimNumber}"
+                       title="Подробная информация">
+                        ${repair.claimNumber}</a></td>
                 <td>${repair.dateOfRepair}</td>
                 <td>${repair.vehicleMileage}</td>
                 <td>${repair.causalPart.catalogueNumber}</td>

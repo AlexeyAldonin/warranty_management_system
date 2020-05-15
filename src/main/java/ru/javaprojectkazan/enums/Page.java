@@ -7,7 +7,8 @@ public enum Page {
     INDEX_PAGE ("/index.jsp"),
     VEHICLE_DETAILS ("/views/vehicleDetails.jsp"),
     FIND_VEHICLE ("/views/findVehicle.jsp"),
-    CLAIM_HISTORY ("/views/claimHistory.jsp")
+    CLAIM_HISTORY ("/views/claimHistory.jsp"),
+    CLAIM_DETAILS ("/views/claimDetails.jsp")
     ;
 
     private String path;

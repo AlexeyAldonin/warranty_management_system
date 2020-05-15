@@ -12,6 +12,7 @@
     </style>
 </head>
 <body>
+<jsp:include page="./headers/systemHeader.jsp"></jsp:include>
     <p style="color: red; font: -moz-info">${message}</p>
     <form id="repairForm" action="${pageContext.request.contextPath}/createClaim" method="POST">
         <table style="table-layout: fixed; border-collapse: collapse; border: 3px solid black">
@@ -41,6 +42,6 @@
             </tr>
         </table>
     </form>
-
+    <input type="button" onclick="history.back();" value="Назад"/>
 </body>
 </html>
